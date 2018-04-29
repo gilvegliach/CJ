@@ -2,26 +2,22 @@ import java.util.*;
 import java.io.*;
 
 
-class Solution {
+class Main {
   static void main(InputReader in, OutputWriter out) {
     int tc = in.nextInt();
     for (int t = 1; t <= tc; t++) {
-      out.println(solution());
+      out.printfln("Case #%d: %s", t, "OK");
     }
-  }
-
-  static String solution() {
-    return "OK";
   }
 }
 
 
 // Driver program to read from file/System.in and increase stack size
-public class Main implements Runnable {
+public class Solution implements Runnable {
   private final InputReader in;
   private final OutputWriter out;
 
-  private Main(InputReader ir, OutputWriter or) {
+  private Solution(InputReader ir, OutputWriter or) {
     in = ir;
     out = or;
   }
@@ -30,14 +26,14 @@ public class Main implements Runnable {
     InputStream is = args.length > 0 ? new FileInputStream(args[0]) : System.in;
     InputReader in = new InputReader(is);
     OutputWriter out = new OutputWriter(System.out);
-    Main r = new Main(in, out);
+    Solution r = new Solution(in, out);
     new Thread(null, r, "Main", 1 << 26).start(); // 64 mb stack size
   }
 
   @Override
   public void run() {
     try {
-      Solution.main(in, out);
+      Main.main(in, out);
     } finally {
       out.close();
     }
